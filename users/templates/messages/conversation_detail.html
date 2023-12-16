@@ -1,0 +1,89 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+    
+        h1 {
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+    
+        div {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+    
+        p {
+            background-color: #e7e7e7;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    
+        strong {
+            color: #2c3e50;
+        }
+    
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            resize: vertical;
+        }
+    
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    
+        button:hover {
+            background-color: #45a049;
+        }
+    
+        form {
+            margin-bottom: 0;
+        }
+    </style>
+    
+</head>
+<body>
+    {% block content %}
+        <h1>Conversation with {{ other_user.username }}</h1>
+        <div>
+            <!-- Display messages here -->
+            {% for message in messages %}
+                <p><strong>{{ message.sender.username }}:</strong> {{ message.content }}</p>
+            {% endfor %}
+        </div>
+        <div>
+            <form method="post" action="{% url 'send_message' conversation.id %}">
+                {% csrf_token %}
+                <textarea name="message_content" placeholder="Type your message here"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    {% endblock %}
+</body>
+</html>

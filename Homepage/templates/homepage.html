@@ -1,0 +1,148 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <!-- Meta and Title -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Awesome App</title>
+    <meta name="description" content="Awesome App Template..."/>
+
+    <!-- CSS Links -->
+    <link href="https://fonts.googleapis.com/css?family=Dosis:600|Roboto:400,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/paper-kit.css?v=2.1.0' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcvIDIpAAAAABAwLFzYisQlkW7azeDL6RanR_O_"></script>
+</head>
+<body id="top">
+    <header>
+      <div class="aa-header">
+        <nav class="navbar navbar-expand-md navbar-transparent">
+          <div class="container">
+            <img width="150px" class="img-fluid pr-3 aa-logo-img" src="{% static 'images/olx-logo.png' %}" alt="OLX Egypt logo">
+            <a class="navbar-brand px-0 py-0" href="#">OLX Egypt</a>
+            <div class="collapse navbar-collapse">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#categories">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sell">Sell Now</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="container aa-header-content text-left text-white">
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <h1 class="text-white mb-4">Buy & Sell on OLX Egypt</h1>
+              <p>The leading marketplace to buy and sell goods from electronics to furniture. Safe, easy, and efficient.</p>
+              <ul class="py-1 list-unstyled">
+                <li class="py-2"><i class="fa fa-check-circle pr-4" aria-hidden="true"></i> Wide Range of Categories</li>
+                <li class="py-2"><i class="fa fa-check-circle pr-4" aria-hidden="true"></i> Trusted by Thousands</li>
+                <li class="py-2"><i class="fa fa-check-circle pr-4" aria-hidden="true"></i> Easy to Use Platform</li>
+              </ul>
+              <a class="mt-4 btn btn-outline-neutral btn-round" href="#sell">Start Selling</a>
+            </div>
+            <div class="col-md-6 col-sm-12 text-right">
+              <img width="250px" class="img-fluid" src="images/olx-logo.png" alt="Sell and Buy on OLX">
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Login Section -->
+    <!-- Login Section -->
+    <div id="login-section">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 offset-md-3">
+                  <h2 class="text-center">Login</h2>
+                  <form method="post" action="{% url 'login' %}">
+                      {% csrf_token %}
+                      <!-- Assuming 'login_form' is passed from your login view -->
+                      {{ login_form.as_p }}
+                      <button type="submit" class="btn btn-primary">Login</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Registration Section -->
+  <div id="registration-section">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 offset-md-3">
+                  <h2 class="text-center">Register</h2>
+                  <form method="post" action="{% url 'signup' %}">
+                      {% csrf_token %}
+                      <!-- Assuming 'signup_form' is passed from your signup view -->
+                      {{ signup_form.as_p }}
+                      <button type="submit" class="btn btn-primary">Register</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+    
+    <footer class="footer footer-black footer-white">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-3">
+                  <h5>About OLX Egypt</h5>
+                  <p>OLX Egypt is the top marketplace for buying and selling used goods. From electronics to cars, find everything you need or sell what you don't.</p>
+              </div>
+              <div class="col-md-3">
+                  <h5>Categories</h5>
+                  <ul>
+                      <li><a href="#">Electronics</a></li>
+                      <li><a href="#">Cars and Vehicles</a></li>
+                      <li><a href="#">Home and Garden</a></li>
+                      <li><a href="#">Sports and Outdoors</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3">
+                  <h5>Quick Links</h5>
+                  <ul>
+                      <li><a href="#">About s</a></li>
+                      <li><a href="#">Contact Us</a></li>
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">Terms of Use</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-3">
+                  <h5>Contact</h5>
+                  <p>Have any questions or concerns? Get in touch with our support team.</p>
+                  <p><i class="fa fa-envelope-o" aria-hidden="true"></i> support@olx.eg</p>
+              </div>
+          </div>
+          <div class="row">
+              <div class="credits ml-auto">
+                  <span>© <script>document.write(new Date().getFullYear())</script>, made with <i class="fa fa-heart heart"></i> by OLX Egypt Team</span>
+              </div>
+          </div>
+      </div>
+  </footer>
+  
+  <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/paper-kit.js?v=2.1.0' %}"></script>
+  <script src="{% static 'scripts/main.js' %}"></script>
+  <script>
+    function onClick(e) {
+      e.preventDefault();
+      grecaptcha.enterprise.ready(async () => {
+        const token = await grecaptcha.enterprise.execute('6LcvIDIpAAAAABAwLFzYisQlkW7azeDL6RanR_O_', {action: 'LOGIN'});
+      });
+    }
+  </script>
+  </body>
+  </html>
